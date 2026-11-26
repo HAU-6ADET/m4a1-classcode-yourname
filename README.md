@@ -12,9 +12,9 @@ Follow the [setup guide](SETUP.md) to create and clone your private repository, 
 
 The starter already holds the classes you will change. Follow the demo and make these true:
 
-- In `lib/student.dart`, the grade is stored in a private field named `_grade`, and a getter and a setter named `grade` reach it. `toString()` returns the name and the grade.
+- In `lib/student.dart`, the constructor takes only the name, so `Student('Ana')` is valid and the grade starts at `0`. The grade is stored in a private field named `_grade` (a number such as `double`), and a getter and a setter named `grade` reach it. `toString()` returns the name and the grade.
 - In `lib/animals.dart`, `Dog`, `Cat` and `Cow` each override `makeSound()` to return `Woof`, `Meow` and `Moo`.
-- In `lib/farm.dart`, `main()` makes the student `Ana` with a grade of 92 and prints her, then loops over a `List<Animal>` holding Rex the dog, Tom the cat and Bessie the cow, and prints a line such as `Rex says Woof` for each.
+- In `lib/farm.dart`, `main()` makes the student `Ana` with `Student('Ana')`, sets her grade to 92 through the setter, and prints her, then loops over a `List<Animal>` holding Rex the dog, Tom the cat and Bessie the cow, and prints a line such as `Rex says Woof` for each.
 
 Run your program with:
 
@@ -38,9 +38,12 @@ The setter accepts any value for now. That is deliberate; the take-home M4A2 is 
 ## Check and save your work
 
 ```sh
+dart pub get
 dart analyze
 dart test
 ```
+
+Run `dart pub get` first on a lab PC or a Mac: it downloads the test package, and `dart analyze` reports errors until it has run.
 
 The tests in your repository are a guide. The instructor grades from the course's own copy of the tests, so do not edit the tests to make them pass.
 

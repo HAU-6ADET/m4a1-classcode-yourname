@@ -15,14 +15,8 @@ Future<ProcessResult> runProgram(String path) async {
 
 void main() {
   group('main() in lib/farm.dart', () {
-    test('lib/farm.dart exists and declares main()', () {
-      final file = File('lib/farm.dart');
-      expect(file.existsSync(), isTrue, reason: 'Keep your program in lib/farm.dart.');
-      expect(file.readAsStringSync(), matches(RegExp(r'\bmain\s*\(')),
-          reason: 'lib/farm.dart needs a main() function so `dart run` can start it.');
-    });
-
-    test('runs without error and prints the student and the farm', () async {
+    test('lib/farm.dart runs without error and prints the student and the farm', () async {
+      expect(File('lib/farm.dart').existsSync(), isTrue, reason: 'Keep your program in lib/farm.dart.');
       final result = await runProgram('lib/farm.dart');
       expect(result.exitCode, equals(0),
           reason: '`dart run lib/farm.dart` must finish without an error.\n${result.stderr}');
